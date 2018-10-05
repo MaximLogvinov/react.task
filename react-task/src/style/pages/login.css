@@ -1,0 +1,9 @@
+#login {
+    background-color: #525659;
+    min-height: 100vh;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+    display: flex;
+    align-items: center;
+}

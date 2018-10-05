@@ -1,0 +1,24 @@
+#home {
+    background-color: #525659;
+    min-height: 100vh;
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+    display: flex;
+    align-items: center;
+}
+.greeting {
+    border-radius: 30px;
+    background-color: #94BA37;
+    align-items: center;
+}
+.greeting-img-wrapper {
+    border-radius: 5px;
+}
+.greeting-link {
+    color: #118417;
+}
+.greeting-link:hover {
+    color: #409671;
+    text-decoration: none;
+}
