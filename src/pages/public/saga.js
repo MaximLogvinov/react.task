@@ -26,7 +26,13 @@ export default function* () {
 }
 
 function getData ( options ) {
+    console.log(options);
     return new Promise((resolve, reject) => {
+        // let result = findUser( email, password);
         setTimeout(()=> resolve({}), 2*1000);
     });
 }
+
+// function findUser( email, password) {
+//
+// }
