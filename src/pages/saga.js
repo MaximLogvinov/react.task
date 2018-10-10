@@ -3,7 +3,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 
 // local dependencies
-import { PAGE } from '../../actions/types';
+import { PAGE } from '../actions/types';
 
 function* userLogIn ( action ) {
     console.log('userLogIn-start');

@@ -4,7 +4,7 @@ import { reducer as toastrReducer } from 'react-redux-toastr';
 import { reducer as formReducer } from 'redux-form';
 
 // local dependencies
-import page from '../pages/public/reducer';
+import page from '../pages/reducer';
 
 
 export default combineReducers({

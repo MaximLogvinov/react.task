@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 // local dependencies
 import validate from './Validaiton';
 import fieldComponent from './Field';
-import '../../../style/components/form.css';
+import '../../style/components/form.css';
 import submit from './Submit';
-import { PAGE } from '../../../actions/types';
+import { PAGE } from '../../actions/types';
 
 let AuthorizationForm = props => {
     const { handleSubmit, submitting } = props;

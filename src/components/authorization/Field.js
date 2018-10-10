@@ -1,7 +1,7 @@
 // outsource dependencies
 import React from 'react'
 // local dependencies
-import '../../../style/components/form.css'
+import '../../style/components/form.css'
 export default ({
                     input,
                     label,

@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 // local dependencies
 import '../../style/pages/login.css';
 import logo from '../../assets/images/logo.svg';
-import AuthorizationForm from '../components/authorization/Form';
+import AuthorizationForm from '../../components/authorization/Form';
 
 class Login extends Component {
-    // submitt = () => {
-    //     console.log('fggf')
-    // };
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div id="login">

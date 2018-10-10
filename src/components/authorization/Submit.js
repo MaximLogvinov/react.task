@@ -1,5 +1,5 @@
 import { SubmissionError } from 'redux-form'
-import {PAGE} from "../../../actions/types";
+import {PAGE} from "../../actions/types";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 

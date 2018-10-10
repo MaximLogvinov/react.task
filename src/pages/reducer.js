@@ -2,7 +2,7 @@
 // outsource dependencies
 
 // local dependencies
-import { PAGE } from '../../actions/types';
+import { PAGE } from '../actions/types';
 
 // configuration
 let initial = {
