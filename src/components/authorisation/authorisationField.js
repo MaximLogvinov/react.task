@@ -7,7 +7,7 @@ export default ({
                     label,
                     type,
                     meta: { touched, error }
-}) => (
+                }) => (
     <div>
         <label className="mr-2">{label}:</label>
         <div className="row">

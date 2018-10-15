@@ -1,10 +1,10 @@
 // outsource dependencies
 import React, { Component } from 'react';
-import image from '../../assets/images/image.jpg';
+import image from '../../../assets/images/image.jpg';
 import { Container, Row, Col } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 // local dependencies
-import '../../style/pages/home.css';
+import '../../../style/pages/home.css';
 
 class Home extends Component {
   render() {

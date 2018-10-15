@@ -1,38 +1,35 @@
 
-// outsource dependencies
-
 // local dependencies
-import { PAGE } from '../actions/types';
+import { LOGIN_PAGE, SETTINGS_PAGE } from '../actions/types';
 
 // configuration
 let initial = {
     expectAnswer: false,
-    data: {
-        error: null,
-        content: [],
+    isAuth: false,
+    userData: {
+        name: 'User',
+        age: 'not specified'
     },
 };
 
-// export
 export default function ( state = initial, action ) {
     let { type, ...options } = action;
     switch ( type ) {
         default:
             state = {...state};
             break;
-        case PAGE.PRELOADER:
-            console.log('works!');
+        case LOGIN_PAGE.PRELOADER:
             state = { ...state, expectAnswer: options.expectAnswer };
             break;
-        case PAGE.LOG_IN:
-            state = { ...state, data: {...state.data, ...options} };
+        case LOGIN_PAGE.LOG_IN.SUCCESS:
+            state = { ...state, isAuth: options.isAuth, ...options };
+            break;
+        case SETTINGS_PAGE.PRELOADER:
+            state = { ...state, expectAnswer: options.expectAnswer };
+            break;
+        case SETTINGS_PAGE.SETTINGS.SUCCESS:
+            state = { ...state, ...options };
             break;
     }
-
-    // (new RegExp(PAGE.PREFIX)).test(type)&&
-    // console.log(`%c PAGE ${type}`, 'background: #FAC; color: #fff; font-size: 12px'
-    //     ,'\n action:', action
-    //     ,'\n state:', state
-    // );
     return state;
 }

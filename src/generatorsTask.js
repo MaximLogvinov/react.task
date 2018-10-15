@@ -43,8 +43,9 @@ function* trafficLightsOrder() {
     yield green;
 }
 function* trafficLightStart() {
-    while (true)
-    yield* trafficLightsOrder();
+    while (true){
+        yield* trafficLightsOrder();
+    }
 }
 
 let traffic = trafficLightStart();

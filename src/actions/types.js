@@ -16,8 +16,14 @@ export function createType ( type ) {
     return action;
 }
 
-let prefix = '@login/';
-export const PAGE = {
-    PRELOADER: prefix+'PRELOADER',
-    LOG_IN: createType(prefix+'LOG_IN')
+let prefixLogIn = '@login/';
+export const LOGIN_PAGE = {
+    PRELOADER: `${prefixLogIn}PRELOADER`,
+    LOG_IN: createType(`${prefixLogIn}LOG_IN`)
+};
+
+let prefixSettings = '@settings/';
+export const SETTINGS_PAGE = {
+    PRELOADER: `${prefixSettings}PRELOADER`,
+    SETTINGS: createType(`${prefixSettings}SETTINGS`)
 };

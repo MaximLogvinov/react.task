@@ -4,25 +4,28 @@ import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 
 // local dependencies
-import '../../style/pages/login.css';
-import logo from '../../assets/images/logo.svg';
-import AuthorizationForm from '../../components/authorization/Form';
+import '../../../style/pages/settings.css';
+import logo from '../../../assets/images/logo.svg';
+import SettingsForm from '../../../components/userSettings/settingsForm';
 
-class Login extends Component {
+class Settings extends Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        console.log('this.props.userData', this.props.userData)
+    }
     render() {
         return (
-            <div id="login">
+            <div id="settingsPage">
                 <Container>
                     <Row className="greeting pt-5 pb-5">
                         <Col>
                             <p>
-                                Dear guest, please log in! ;)
+                                {this.props.userData.name}, here you can change previous data.
                             </p>
-                            <AuthorizationForm />
-                            {this.props.expectAnswer && <Prelodaer />}
+                            <SettingsForm/>
+                            {this.props.expectAnswer && <Preloader />}
                         </Col>
                     </Row>
                 </Container>
@@ -30,13 +33,12 @@ class Login extends Component {
         );
     }
 }
-
-function Prelodaer () {
+function Preloader () {
     return (
         <Row>
-            <Col className="text-center">
-                <div style={{position:'relative'}}>
-                    <div style={{position: 'absolute'}}>
+            <Col>
+                <div className="position-relative">
+                    <div className="position-absolute w-100">
                         <img src={logo} className="onsubmit-preloader" alt="logo" />
                     </div>
                 </div>
@@ -44,4 +46,4 @@ function Prelodaer () {
         </Row>
     );
 }
-export default connect(state => ({ ...state.page }))(Login);
+export default connect(state => ({ ...state.page }))(Settings);

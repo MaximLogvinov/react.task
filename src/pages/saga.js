@@ -3,36 +3,47 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 
 // local dependencies
-import { PAGE } from '../actions/types';
+import history from '../history';
+import { LOGIN_PAGE, SETTINGS_PAGE } from '../actions/types';
 
 function* userLogIn ( action ) {
-    console.log('userLogIn-start');
     let { type, ...options } = action;
-    yield put({type: PAGE.PRELOADER, expectAnswer: true});
+    yield put({type: LOGIN_PAGE.PRELOADER, expectAnswer: true});
     try {
         let results = yield call(getData, options);
-        yield put({type: PAGE.LOG_IN.SUCCESS, ...results});
+        yield put({type: LOGIN_PAGE.LOG_IN.SUCCESS, ...results});
     } catch ( error ) {
-        yield put({type: PAGE.LOG_IN.ERROR, error});
+        yield put({type: LOGIN_PAGE.LOG_IN.ERROR, error});
     }
-    yield put({type: PAGE.PRELOADER, expectAnswer: false});
-    yield put({type: PAGE.LOG_IN.FINISH});
+    yield put({type: LOGIN_PAGE.PRELOADER, expectAnswer: false});
+    yield put({type: LOGIN_PAGE.LOG_IN.FINISH});
+    yield call(history.push, '/welcome');
 }
 
+function* userChangeSettings ( action ) {
+    let { type, ...options } = action;
+    yield put({type: SETTINGS_PAGE.PRELOADER, expectAnswer: true});
+    try {
+        let results = yield call(getData, options);
+        yield put({type: SETTINGS_PAGE.SETTINGS.SUCCESS, ...results});
+    } catch ( error ) {
+        yield put({type: SETTINGS_PAGE.SETTINGS.ERROR, error});
+    }
+    yield put({type: SETTINGS_PAGE.PRELOADER, expectAnswer: false});
+    yield put({type: SETTINGS_PAGE.SETTINGS.FINISH});
+    yield call(history.push, '/welcome');
+}
 
 // Export root watcher for "page"
 export default function* () {
-    yield takeEvery([PAGE.LOG_IN.START], userLogIn);
+    yield takeEvery([LOGIN_PAGE.LOG_IN.START], userLogIn);
+    yield takeEvery([SETTINGS_PAGE.SETTINGS.START], userChangeSettings);
 }
 
 function getData ( options ) {
-    console.log(options);
     return new Promise((resolve, reject) => {
-        // let result = findUser( email, password);
-        setTimeout(()=> resolve({}), 2*1000);
+        setTimeout(()=> {
+            resolve(options);
+        }, 2*1000);
     });
 }
-
-// function findUser( email, password) {
-//
-// }
