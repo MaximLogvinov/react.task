@@ -16,6 +16,10 @@ export function createType ( type ) {
     return action;
 }
 
+export const PRELOADER = {
+  PRELOADER: 'PRELOADER'
+};
+
 let prefixLogIn = '@login/';
 export const LOGIN_PAGE = {
     PRELOADER: `${prefixLogIn}PRELOADER`,

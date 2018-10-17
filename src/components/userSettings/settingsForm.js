@@ -53,8 +53,6 @@ let SettingsForm = props => {
     )
 };
 // Export
-SettingsForm = connect(
-    state => ({ ...state.page }),
-)(SettingsForm);
+SettingsForm = connect(state => ({ ...state.page }),)(SettingsForm);
 
 export default reduxForm({form: 'settings', validate})(SettingsForm);

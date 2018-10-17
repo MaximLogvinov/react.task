@@ -12,7 +12,12 @@ export default ({
         <label className="mr-2">{label}:</label>
         <div className="row">
             <div className="col-9 mt-2">
-                <input className="field-wrapper" {...input} placeholder={label} type={type} />
+                <input
+                    {...input}
+                    type={type}
+                    placeholder={label}
+                    className="field-wrapper"
+                        />
             </div>
             <div className="col mt-2">
                 <div className="position-relative">

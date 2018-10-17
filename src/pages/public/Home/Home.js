@@ -15,7 +15,7 @@ class Home extends Component {
                     <Col>
                         <img
                             src={image}
-                            alt="home picture"
+                            alt="home"
                             className="greeting-img-wrapper"
                             />
                     </Col>

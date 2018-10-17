@@ -8,9 +8,9 @@ import { NavLink } from 'react-router-dom';
 import '../../../style/pages/welcome.css';
 
 class Welcome extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     render() {
         console.log(this.props);
         return (

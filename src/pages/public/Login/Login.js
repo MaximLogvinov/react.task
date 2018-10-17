@@ -9,9 +9,9 @@ import logo from '../../../assets/images/logo.svg';
 import AuthorisationForm from '../../../components/authorisation/authorisationForm';
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     render() {
         return (
             <div id="login">

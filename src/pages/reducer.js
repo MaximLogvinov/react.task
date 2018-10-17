@@ -1,6 +1,6 @@
 
 // local dependencies
-import { LOGIN_PAGE, SETTINGS_PAGE } from '../actions/types';
+import { LOGIN_PAGE, SETTINGS_PAGE, PRELOADER } from '../actions/types';
 
 // configuration
 let initial = {
@@ -8,6 +8,8 @@ let initial = {
     isAuth: false,
     userData: {
         name: 'User',
+        email: 'not specified',
+        password: 'not specified',
         age: 'not specified'
     },
 };
@@ -18,14 +20,11 @@ export default function ( state = initial, action ) {
         default:
             state = {...state};
             break;
-        case LOGIN_PAGE.PRELOADER:
+        case PRELOADER:
             state = { ...state, expectAnswer: options.expectAnswer };
             break;
         case LOGIN_PAGE.LOG_IN.SUCCESS:
             state = { ...state, isAuth: options.isAuth, ...options };
-            break;
-        case SETTINGS_PAGE.PRELOADER:
-            state = { ...state, expectAnswer: options.expectAnswer };
             break;
         case SETTINGS_PAGE.SETTINGS.SUCCESS:
             state = { ...state, ...options };

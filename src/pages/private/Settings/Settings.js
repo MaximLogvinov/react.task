@@ -9,12 +9,9 @@ import logo from '../../../assets/images/logo.svg';
 import SettingsForm from '../../../components/userSettings/settingsForm';
 
 class Settings extends Component {
-    constructor(props) {
-        super(props);
-    }
-    componentDidMount() {
-        console.log('this.props.userData', this.props.userData)
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     render() {
         return (
             <div id="settingsPage">

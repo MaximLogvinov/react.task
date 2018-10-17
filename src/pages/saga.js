@@ -4,32 +4,32 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 
 // local dependencies
 import history from '../history';
-import { LOGIN_PAGE, SETTINGS_PAGE } from '../actions/types';
+import { LOGIN_PAGE, SETTINGS_PAGE, PRELOADER } from '../actions/types';
 
 function* userLogIn ( action ) {
     let { type, ...options } = action;
-    yield put({type: LOGIN_PAGE.PRELOADER, expectAnswer: true});
+    yield put({type: PRELOADER, expectAnswer: true});
     try {
         let results = yield call(getData, options);
         yield put({type: LOGIN_PAGE.LOG_IN.SUCCESS, ...results});
     } catch ( error ) {
         yield put({type: LOGIN_PAGE.LOG_IN.ERROR, error});
     }
-    yield put({type: LOGIN_PAGE.PRELOADER, expectAnswer: false});
+    yield put({type: PRELOADER, expectAnswer: false});
     yield put({type: LOGIN_PAGE.LOG_IN.FINISH});
     yield call(history.push, '/welcome');
 }
 
 function* userChangeSettings ( action ) {
     let { type, ...options } = action;
-    yield put({type: SETTINGS_PAGE.PRELOADER, expectAnswer: true});
+    yield put({type: PRELOADER, expectAnswer: true});
     try {
         let results = yield call(getData, options);
         yield put({type: SETTINGS_PAGE.SETTINGS.SUCCESS, ...results});
     } catch ( error ) {
         yield put({type: SETTINGS_PAGE.SETTINGS.ERROR, error});
     }
-    yield put({type: SETTINGS_PAGE.PRELOADER, expectAnswer: false});
+    yield put({type: PRELOADER, expectAnswer: false});
     yield put({type: SETTINGS_PAGE.SETTINGS.FINISH});
     yield call(history.push, '/welcome');
 }
